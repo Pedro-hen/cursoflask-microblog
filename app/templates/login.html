@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
+
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        <div>
+            {% for msg in mensagens %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <form action="/autenticar" method="post">
         Usuario: <input type="text" name="usuario"><br>
         Senha: <input type="password" name="senha"><br>
